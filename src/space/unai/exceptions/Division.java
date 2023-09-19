@@ -10,10 +10,18 @@ public class Division {
         while (true) {
             try {
                 System.out.print("[>] Introdueix el dividend: ");
-                int dividend = scanner.nextInt();
+                String d1 = scanner.nextLine();
+
 
                 System.out.print("[>] Introdueix el divisor: ");
-                int divisor = scanner.nextInt();
+                String d2 = scanner.nextLine();
+
+                if (d1.contains(" ") || d2.contains(" ")) {
+                    throw new IllegalArgumentException("[!] El número no pot ser un espai!");
+                }
+
+                int dividend = Integer.parseInt(d1);
+                int divisor = Integer.parseInt(d2);
 
                 double resultat = divideix(dividend, divisor);
                 System.out.println("[>] Resultat: " + resultat);
@@ -34,6 +42,9 @@ public class Division {
             throw new ArithmeticException("[!] Divisió per zero no permesa."); // Invoke a ArithmeticException
         } else if (divisor < 0 || dividend < 0) {
             throw new NegativeException("[!] Divisió per negatiu no permesa."); // Invoke a NegativeException
+        } else if (Float.isNaN(dividend) || Float.isNaN(divisor)) {
+            throw new ArithmeticException("[!] No està permes espais en blanc");
+
         }
         return (double) dividend / divisor; // Devolvemos valor
     }
