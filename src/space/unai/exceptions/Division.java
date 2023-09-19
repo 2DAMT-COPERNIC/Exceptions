@@ -10,18 +10,18 @@ public class Division {
         while (true) {
             try {
                 System.out.print("[>] Introdueix el dividend: ");
-                String d1 = scanner.nextLine();
+                String d1 = scanner.nextLine(); // Leemos en STRING
 
 
                 System.out.print("[>] Introdueix el divisor: ");
-                String d2 = scanner.nextLine();
+                String d2 = scanner.nextLine(); // Leemos en STRING
 
-                if (d1.contains(" ") || d2.contains(" ")) {
+                if (d1.contains(" ") || d2.contains(" ")) { // Si el número contiene espacio throwea exception
                     throw new IllegalArgumentException("[!] El número no pot ser un espai!");
                 }
 
-                int dividend = Integer.parseInt(d1);
-                int divisor = Integer.parseInt(d2);
+                int dividend = Integer.parseInt(d1); // Convertir String
+                int divisor = Integer.parseInt(d2); // Convertir String
 
                 double resultat = divideix(dividend, divisor);
                 System.out.println("[>] Resultat: " + resultat);
