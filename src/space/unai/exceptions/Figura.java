@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Figura {
-    private int numCostats;
+    private static int costats;
     private ArrayList<Double> longitudsCostats;
 
     public Figura(int numCostats, ArrayList<Double> longitudsCostats) throws IllegalArgumentException {
@@ -16,7 +16,7 @@ public class Figura {
             throw new IllegalArgumentException("El nombre de costats no correspon amb el nombre de segments proporcionats.");
         }
 
-        this.numCostats = numCostats;
+        costats = numCostats;
         this.longitudsCostats = longitudsCostats;
     }
 
@@ -38,16 +38,13 @@ public class Figura {
             costatsTriangle.add(5.0);
 
             System.out.println("Cuants costats vols?");
-            int costats = sc.nextInt();
+            costats = sc.nextInt();
 
             Figura triangle = new Figura(costats, costatsTriangle);
             System.out.println("Perímetre del triangle: " + triangle.perímetre());
 
-            // Provoca una excepció perquè el nombre de costats és incorrecte
-            // Figura figuraInvalida = new Figura(4, costatsTriangle);
-
         } catch (IllegalArgumentException e) {
-            System.out.println("Error: " + e.getMessage());
+            System.out.println("[!]: " + e.getMessage());
         }
     }
 }

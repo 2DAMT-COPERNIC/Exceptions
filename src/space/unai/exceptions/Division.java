@@ -18,6 +18,8 @@ public class Division {
 
                 if (d1.contains(" ") || d2.contains(" ")) { // Si el número contiene espacio throwea exception
                     throw new IllegalArgumentException("[!] El número no pot ser un espai!");
+                } else if (Float.isNaN(Float.parseFloat((d1))) || Float.isNaN(Float.parseFloat(d2))) {
+                    throw new ArithmeticException("[!] El numero ha de ser numero");
                 }
 
                 int dividend = Integer.parseInt(d1); // Convertir String
@@ -29,7 +31,7 @@ public class Division {
             } catch (InputMismatchException e) {
                 System.out.println("[!] Introdueix dos nombres enters.");
                 scanner.nextLine(); // Leemos la linea
-            } catch (ArithmeticException | NegativeException | IllegalArgumentException ex) {
+            } catch (ArithmeticException | IllegalArgumentException ex) {
                 System.out.println(ex.getMessage()); // Hacemos print a todos los Exception
             }
         }
@@ -38,20 +40,9 @@ public class Division {
     }
 
     public static double divideix(int dividend, int divisor) {
-        if (divisor == 0 || dividend == 0) {
+        if (divisor == 0) {
             throw new ArithmeticException("[!] Divisió per zero no permesa."); // Invoke a ArithmeticException
-        } else if (divisor < 0 || dividend < 0) {
-            throw new NegativeException("[!] Divisió per negatiu no permesa."); // Invoke a NegativeException
-        } else if (Float.isNaN(dividend) || Float.isNaN(divisor)) {
-            throw new ArithmeticException("[!] No està permes espais en blanc");
-
         }
         return (double) dividend / divisor; // Devolvemos valor
-    }
-}
-
-class NegativeException extends RuntimeException {
-    public NegativeException(String message) { // Creamos la clase de NegativeException
-        super(message);
     }
 }
