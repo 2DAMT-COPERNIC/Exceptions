@@ -1,6 +1,7 @@
 package space.unai.exceptions;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Scanner;
 
 public class Figura {
