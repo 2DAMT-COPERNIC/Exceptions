@@ -46,7 +46,7 @@ public class EnterLimitat {
 
     private static int setValor(int v) {
         if (v < MIN) { // Si el valor es menor que MIN
-            throw new IllegalArgumentException("No es pot posar menys de " + MAX + " (" + v + ")"); // Kaboom
+            throw new IllegalArgumentException("No es pot posar menys de " + MIN + " (" + v + ")"); // Kaboom
         } else if (v > MAX) { // Si el valor es mayor que MAX
             throw new IllegalArgumentException("No es pot posar més de " + MAX + " (" + v + ")"); // Kaboom
         } else {
